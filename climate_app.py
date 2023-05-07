@@ -45,14 +45,22 @@ def home ():
         f"----------------------<br/>"
         f" A) Static Routes:<br/>"
         f"------------------------<br/>"        
-        f"  1) Precipitation:    /api/v1.0/precipitation<br/>"
-        f"  2) Stations List:    /api/v1.0/stations<br/>"
-        f"  3) Temperature for one year:     /api/v1.0/tobs<br/>"
+        f"  1) Precipitation: <br/>"
+        f"  /api/v1.0/precipitation<br/>"
+        f"  Precipitation Hyperlink Only if using http://127.0.0.1:5000/:    <a href=http://127.0.0.1:5000/api/v1.0/precipitation> /api/v1.0/precipitation</a> <br/>"
+        f"  2) Stations List:  <br/>" 
+        f"  /api/v1.0/stations<br/>"
+        f"  Stations Hyperlink Only if using http://127.0.0.1:5000/:    <a href=http://127.0.0.1:5000/api/v1.0/stations> /api/v1.0/stations</a> <br/>"
+        f"  3) Temperature for one year:  <br/>"
+        f"  /api/v1.0/tobs<br/>"
+        f"  Tobs Hyperlink Only if using http://127.0.0.1:5000/:   <a href=http://127.0.0.1:5000/api/v1.0/tobs> /api/v1.0/tobs</a> <br/>"
         f"-------------------<br/>"
         f" B) Dynamic Routes:<br/>"
         f"-------------------------<br/>"
-        f"  4) Temperature stat from the start date(yyyy-mm-dd):     /api/v1.0/start_date/Type-Here-Start-Date<br/>"
-        f"  5) Temperature stat from start to end dates(yyyy-mm-dd)/(yyyy-mm-dd):     /api/v1.0/start_to_end_date/Type-Here-Start-Date/Type-Here-End-Date<br/>"
+        f"  4) Temperature stat from the start date(yyyy-mm-dd):     /api/v1.0/start_date/*Type-Start-Date-Here*<br/>"
+#        f"      <a href=http://127.0.0.1:5000/api/v1.0/start_date/> /api/v1.0/start_date/Type-Start-Date-Here</a> <br/>"
+        f"  5) Temperature stat from start to end dates(yyyy-mm-dd)/(yyyy-mm-dd):     /api/v1.0/start_to_end_date/*Type-Start-Date-Here*/*Type-End-Date-Here*<br/>"
+#        f"      <a href=http://127.0.0.1:5000/api/v1.0//api/v1.0/start_to_end_date/Type-Start-Date-Here/Type-End-Date-Here> /api/v1.0/start_to_end_date/Type-Here-Start-Date/Type-Here-End-Date</a> <br/>"
         f" <br/>" 
         f"NOTE: If dates are not in format yyyy-mm-dd it will return an error <br>" 
     )
@@ -180,7 +188,7 @@ def start_date(start_date):
     # If the query returned non-null values return the results,
     # otherwise return an error message
     if stations_calc_dict['Minimum']:
-        return jsonify(stations_calc_list)
+        return jsonify(start_date, stations_calc_list)
     else:
         return jsonify({"error": f"Date(s) not found, invalid date range or dates not formatted correctly."}), 404
 
@@ -212,7 +220,7 @@ def start_to_end_date(start_date,end_date):
     # If the query returned non-null values return the results,
     # otherwise return an error message
     if stations_calc_dtrange_dict['Minimum']:
-        return jsonify(stations_calc_dtrange_list)
+        return jsonify(start_date, end_date, stations_calc_dtrange_list)
     else:
         return jsonify({"error": f"Date(s) not found, invalid date range or dates not formatted correctly."}), 404
 
