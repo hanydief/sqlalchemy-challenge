@@ -170,16 +170,23 @@ Returns json with the date as the key and the value as the precipitation (3 poin
 
 Only returns the jsonified precipitation data for the last year in the database (3 points)
 
+  ![Precipitation_output.png](https://github.com/hanydief/sqlalchemy-challenge/blob/main/Saved_Output_Figures/precipitation_outputs.png)
+  
 ### A stations route that:
 
 Returns jsonified data of all of the stations in the database (3 points)
+![Stations_outputs.png](https://github.com/hanydief/sqlalchemy-challenge/blob/main/Saved_Output_Figures/stations_outputs.png)
+  
 ### A tobs route that:
 
 Returns jsonified data for the most active station (USC00519281) (3 points)
 
 Only returns the jsonified data for the last year of data (3 points)
 
+![Tobs_outputs.png](https://github.com/hanydief/sqlalchemy-challenge/blob/main/Saved_Output_Figures/tobs_outputs.png)
+  
 ## API Dynamic Route (15 points)
+  
 To receive all points, your Flask application must include
 ### A start route that:
 
@@ -187,11 +194,15 @@ Accepts the start date as a parameter from the URL (2 points)
 
 Returns the min, max, and average temperatures calculated from the given start date to the end of the dataset (4 points)
 
+![Starting_date_outputs.png](https://github.com/hanydief/sqlalchemy-challenge/blob/main/Saved_Output_Figures/starting_date_outputs.png)
+  
 ### A start/end route that:
 
 Accepts the start and end dates as parameters from the URL (3 points)
 
 Returns the min, max, and average temperatures calculated from the given start date to the given end date (6 points)
+  
+![Start-end_outputs.png](https://github.com/hanydief/sqlalchemy-challenge/blob/main/Saved_Output_Figures/start-end_outputs.png)  
 
 ## Coding Conventions and Formatting (8 points)
 To receive all points, your code must
