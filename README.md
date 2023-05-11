@@ -175,6 +175,7 @@ Only returns the jsonified precipitation data for the last year in the database 
 ### A stations route that:
 
 Returns jsonified data of all of the stations in the database (3 points)
+
 ![Stations_outputs.png](https://github.com/hanydief/sqlalchemy-challenge/blob/main/Saved_Output_Figures/stations_outputs.png)
   
 ### A tobs route that:
@@ -182,7 +183,7 @@ Returns jsonified data of all of the stations in the database (3 points)
 Returns jsonified data for the most active station (USC00519281) (3 points)
 
 Only returns the jsonified data for the last year of data (3 points)
-
+  
 ![Tobs_outputs.png](https://github.com/hanydief/sqlalchemy-challenge/blob/main/Saved_Output_Figures/tobs_outputs.png)
   
 ## API Dynamic Route (15 points)
