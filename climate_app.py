@@ -137,20 +137,24 @@ def tobs():
     #     order_by(func.count(Measurement.id).desc()).first()
     # most_active_stations
 
-    temp_results = session.query(Measurement.station, Measurement.tobs).\
+    temp_results = session.query(Measurement.date, Measurement.tobs).\
                     filter(Measurement.station == active_stations[0][0]).\
                     filter(Measurement.date >= year_from_recent).all()
 
     session.close()
 
-    # creating a list of dictionaries returns jsonify "tobs_list" list
+
+#    # 1st way to creating a list of dictionaries returns jsonify "tobs_list" list
     tobs_list = []
     for station,tobs in temp_results:
         tobs_dict = {}
-        tobs_dict["Station"] = station
+        tobs_dict["Date"] = date
         tobs_dict["Tobs"] = tobs
         tobs_list.append(tobs_dict)
 
+#   # 2nd way to do a list of Dict
+#    tobs_list = [dict(temp_results)]
+   
     return jsonify(tobs_list)
 
 
@@ -180,6 +184,7 @@ def start_date(start_date):
     stations_calc_list = []
     for min,max,avg in temp_stations:
         stations_calc_dict = {}
+#        stations_calc_dict["Start Date"] = start_date
         stations_calc_dict["Minimum"] = min
         stations_calc_dict["Maximum"] = max
         stations_calc_dict["Average"] = avg
@@ -188,7 +193,7 @@ def start_date(start_date):
     # If the query returned non-null values return the results,
     # otherwise return an error message
     if stations_calc_dict['Minimum']:
-        return jsonify(start_date, stations_calc_list)
+        return jsonify(start_date,stations_calc_list)
     else:
         return jsonify({"error": f"Date(s) not found, invalid date range or dates not formatted correctly."}), 404
 
@@ -212,6 +217,8 @@ def start_to_end_date(start_date,end_date):
     stations_calc_dtrange_list = []
     for min,max,avg in temp_stations_dtrange:
         stations_calc_dtrange_dict = {}
+#        stations_calc_dtrange_dict["Start Date"] = start_date
+#        stations_calc_dtrange_dict["End Date"] = end_date
         stations_calc_dtrange_dict["Minimum"] = min
         stations_calc_dtrange_dict["Maximum"] = max
         stations_calc_dtrange_dict["Average"] = avg
@@ -220,7 +227,7 @@ def start_to_end_date(start_date,end_date):
     # If the query returned non-null values return the results,
     # otherwise return an error message
     if stations_calc_dtrange_dict['Minimum']:
-        return jsonify(start_date, end_date, stations_calc_dtrange_list)
+        return jsonify(start_date,end_date,stations_calc_dtrange_list)
     else:
         return jsonify({"error": f"Date(s) not found, invalid date range or dates not formatted correctly."}), 404
 
