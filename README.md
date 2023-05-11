@@ -205,7 +205,8 @@ Returns the min, max, and average temperatures calculated from the given start d
 ![Start-end_outputs.png](https://github.com/hanydief/sqlalchemy-challenge/blob/main/Saved_Output_Figures/start-end_outputs.png)  
 
 ## Coding Conventions and Formatting (8 points)
-To receive all points, your code must
+
+  To receive all points, your code must
 Place imports at the top of the file, just after any module comments and docstrings, and before module globals and constants. (2 points)
 
 Name functions and variables with lowercase characters, with words separated by underscores. (2 points)
@@ -215,7 +216,8 @@ Follow DRY (Don't Repeat Yourself) principles, creating maintainable and reusabl
 Use concise logic and creative engineering where possible. (2 points)
 
 ## Deployment and Submission (6 points)
-To receive all points, you must
+
+  To receive all points, you must
 Submit a link to a GitHub repository that’s cloned to your local machine and contains your files. (2 points)
 
 Use the command line to add your files to the repository. (2 points)
