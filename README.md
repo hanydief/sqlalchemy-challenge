@@ -183,7 +183,8 @@ Returns jsonified data of all of the stations in the database (3 points)
 Returns jsonified data for the most active station (USC00519281) (3 points)
 
 Only returns the jsonified data for the last year of data (3 points)
-  ![Tobs_Outputs.png](https://github.com/hanydief/sqlalchemy-challenge/blob/main/Saved_Output_Figures/tobs_outputs.png)
+  
+![Tobs_Outputs.png](https://github.com/hanydief/sqlalchemy-challenge/blob/main/Saved_Output_Figures/tobs_outputs.png)
 
   
 ## API Dynamic Route (15 points)
